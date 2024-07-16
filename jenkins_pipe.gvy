@@ -13,8 +13,8 @@ pipeline {
             steps{
                 echo '-----------------Compilling Angular------------------------------'
                 dir('admin') {
-                    bat 'npm install'
-                    bat 'npm run ng build --base-href /ovpadmin/ --deploy-url /ovpadmin/ --output-hashing none'
+                    sh 'npm install'
+                    sh 'npm run ng build --base-href /ovpadmin/ --deploy-url /ovpadmin/ --output-hashing none'
                 }
                 echo '-----------------Angular Compilation End-------------------------'
             }
