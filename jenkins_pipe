@@ -1,6 +1,9 @@
 pipeline {
     agent any
     tools {nodejs "node"}
+    environment {
+        CI = 'true'
+    }
     stages {
         stage('Source Code Update') {
             steps {
@@ -15,9 +18,6 @@ pipeline {
                 dir('admin') {
                     sh 'node --version'
                     sh 'npm install'
-                    // withNPM(npmrcConfig: 'my-custom-nprc') {
-                    //     sh 'npm install'
-                    // }
                     sh 'npm run ng build --base-href /ovpadmin/ --deploy-url /ovpadmin/ --output-hashing none'
                 }
                 echo '-----------------Angular Compilation End-------------------------'
