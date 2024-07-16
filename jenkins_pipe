@@ -27,7 +27,7 @@ pipeline {
             steps{
                 echo "--------------------------Deployment Start---------------------"
                 dir("admin/dist"){
-                    sh "/var/lib/jenkins/scripts/deploy-angular.sh -s (pwd)"
+                    sh "/var/lib/jenkins/scripts/deploy-angular.sh -s $PWD/ovp-admin"
                 }
                 echo "--------------------------Deployment End-----------------------"
             }
