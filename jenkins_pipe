@@ -25,12 +25,11 @@ pipeline {
         }
         stage("Deployment"){
             steps{
-                echo "--------------------------Deployment Start---------------------"
+                echo '--------------------------Deployment Start---------------------'
                 dir("admin/dist"){
-                    echo $WORKSPACE
-                    sh "/var/lib/jenkins/scripts/deploy-angular.sh -s ${dir}/ovp-admin"
+                    sh '/var/lib/jenkins/scripts/deploy-angular.sh -s $WORKSPACE/ovp-admin'
                 }
-                echo "--------------------------Deployment End-----------------------"
+                echo '--------------------------Deployment End-----------------------'
             }
         }
     }
