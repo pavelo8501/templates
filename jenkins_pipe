@@ -20,7 +20,16 @@ pipeline {
                     sh 'npm install'
                     sh 'ng build --base-href /ovpadmin/ --deploy-url /ovpadmin/ --output-hashing none'
                 }
-                echo '--------------------------NPM BUILD End-------------------------'
+                echo '--------------------------NPM Buid End-------------------------'
+            }
+        }
+        stage("Deployment"){
+            steps{
+                echo "--------------------------Deployment Start---------------------"
+                dir("admin/dist"){
+                    sh "/var/lib/jenkins/scripts/deploy-angular.sh -s (pwd)"
+                }
+                echo "--------------------------Deployment End-----------------------"
             }
         }
     }
