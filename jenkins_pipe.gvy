@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment {
-        NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
-    }
     stages {
         stage('Source Code Update') {
             steps {
@@ -15,7 +12,9 @@ pipeline {
             steps{
                 echo '-----------------Compilling Angular------------------------------'
                 dir('admin') {
-                    sh 'npm install'
+                    withNPM(npmrcConfig: 'my-custom-nprc') {
+                        sh 'npm install'
+                    }
                     sh 'npm run ng build --base-href /ovpadmin/ --deploy-url /ovpadmin/ --output-hashing none'
                 }
                 echo '-----------------Angular Compilation End-------------------------'
