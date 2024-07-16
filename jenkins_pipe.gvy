@@ -12,7 +12,7 @@ pipeline {
             steps{
                 echo '-----------------Compilling Angular------------------------------'
                 dir('admin') {
-                    withNPM(npmrcConfig: 'npm-nprc') {
+                    withNPM() {
                         sh 'npm install'
                     }
                     sh 'npm run ng build --base-href /ovpadmin/ --deploy-url /ovpadmin/ --output-hashing none'
