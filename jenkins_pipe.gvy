@@ -13,7 +13,7 @@ pipeline {
                 echo '-----------------Compilling Angular------------------------------'
                 dir('admin') {
                     sh 'node --version'
-                    withNPM(npmrcConfig: 'npm-global-config') {
+                    withNPM(npmrcConfig: 'my-custom-nprc') {
                         sh 'npm install'
                     }
                     sh 'npm run ng build --base-href /ovpadmin/ --deploy-url /ovpadmin/ --output-hashing none'
