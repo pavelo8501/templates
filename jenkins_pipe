@@ -14,13 +14,13 @@ pipeline {
         }
         stage('Angular Compilation'){
             steps{
-                echo '-----------------Compilling Angular------------------------------'
+                echo '--------------------------NPM Build ----------------------------'
                 dir('admin') {
                     sh 'node --version'
                     sh 'npm install'
                     sh 'npm run ng build --base-href /ovpadmin/ --deploy-url /ovpadmin/ --output-hashing none'
                 }
-                echo '-----------------Angular Compilation End-------------------------'
+                echo '--------------------------NPM BUILD End-------------------------'
             }
         }
     }
