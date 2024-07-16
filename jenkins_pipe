@@ -18,7 +18,7 @@ pipeline {
                 dir('admin') {
                     sh 'node --version'
                     sh 'npm install'
-                    sh 'npm run ng build --base-href /ovpadmin/ --deploy-url /ovpadmin/ --output-hashing none'
+                    sh 'ng build --base-href /ovpadmin/ --deploy-url /ovpadmin/ --output-hashing none'
                 }
                 echo '--------------------------NPM BUILD End-------------------------'
             }
