@@ -23,6 +23,15 @@ pipeline {
                 echo '--------------------------NPM Buid End-------------------------'
             }
         }
+        stage('Kotlin Compilation'){
+            steps{
+                echo '--------------------------Java Build ----------------------------'
+                dir('api') {
+                    sh './gradlew buildFatJar'
+                }
+                echo '--------------------------Java Buid End-------------------------'
+            }
+        }
         stage("Deployment"){
             steps{
                 echo '--------------------------Deployment Start---------------------'
