@@ -38,6 +38,8 @@ pipeline {
                 dir("admin/dist"){
                     sh '/var/lib/jenkins/scripts/deploy-angular.sh -s $WORKSPACE/admin/dist'
                 }
+                dir("api/build/libs")
+                sh '/var/lib/jenkins/scripts/deploy-jar.sh -f $WORKSPACE/api/build/libs/ovp-api.jar'
                 echo '--------------------------Deployment End-----------------------'
             }
         }
